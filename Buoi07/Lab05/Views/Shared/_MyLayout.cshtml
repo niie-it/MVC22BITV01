@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" src="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container">
+        <header style="height:100px; background-color:antiquewhite;">#BANNER</header>
+        <div class="row">
+            <aside class="col-md-3">MENU</aside>
+            <div class="col-md-9" style="min-height: 400px;">
+				@RenderBody()
+            </div>
+        </div>
+        <footer class="bg-success">&copy; 2025 NIIE 22BITV01</footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @await RenderSectionAsync("MyScripts", required: false)
+</body>
+</html>

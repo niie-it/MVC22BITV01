@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Demo</h1>
+<h3>Nghe đồn bỏ trong RenderBody</h3>
+
+<style>
+	.hh-box{width:200px; height:300px; border-radius:7px; border: 1px solid blue; text-align:center;}
+	.hh-box-img{width:150px; margin-top: 5px;}
+</style>
+@await Html.PartialAsync("_PartialProduct")
+
+@section Scripts
+{
+	<script>
+		$(document).ready(function () {
+			console.log("AAAA");
+		});
+	</script>
+}
