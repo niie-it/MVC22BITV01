@@ -1,53 +1,27 @@
-﻿@model IEnumerable<Lab07.Data.Supplier>
-
+﻿@model List<Lab07.Data.Supplier>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh sách";
 }
+<h1>Danh sách Nhà cung cấp (@Model.Count)</h1>
 
-<h1>Index</h1>
+<a asp-action="Create" class="btn btn-success">Tạo mới</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<fieldset>
+    <legend>Tìm kiếm</legend>
+    <form asp-action="Index">
+        <input name="TuKhoa" required placeholder="Nhập từ cần tìm" />
+        <button class="btn btn-primary">Tìm</button>
+    </form>
+</fieldset>
+<table class="table table-bordered">
+    @foreach(var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th></th>
+            <td>@item.Name</td>
+            <td>@item.Logo</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Logo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    }
 </table>
+
