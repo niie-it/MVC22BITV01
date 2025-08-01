@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MyEShop01.Models.KetQuaTimKiemVM>
+<style>
+	.hh-box {
+		width: 200px;
+		height: 280px;
+		text-align: center;
+		border: 1px solid red;
+		border-radius: 7px;
+		display: inline-block;
+	}
+</style>
+@foreach (var item in Model)
+{
+	<div class="hh-box">
+		<img width="150" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" />
+	</div>
+}
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.MaHh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.TenHh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Hinh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DonGia)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.NgaySX)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Loai)
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.MaHh)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.TenHh)
+				</td>
+				<td>
+					<img height="90" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" />
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DonGia)
+				</td>
+				<td>
+					@item.NgaySX.ToString("dd/MM/yyyy")
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Loai)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
